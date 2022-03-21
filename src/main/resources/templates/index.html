@@ -4,7 +4,15 @@
     <title>Home</title>
 </head>
 <body>
-<span layout:fragment="title">My accounts</span>
+<div layout:fragment="title-content">
+    <div class="col-md-12 text-center">
+        <h1 class="display-4">My accounts</h1>
+        <button type="button" class="btn bg-gradient-success btn-block mt-3" data-bs-toggle="modal" data-bs-target="#addAccountModal">
+            <small>New account</small>
+        </button>
+        <div th:insert="fragments/addAccountModal :: addAccountModal" th:remove="tag"></div>
+    </div>
+</div>
 <div layout:fragment="content">
     <div th:insert="fragments/card :: card(name = 'Epic Games')" th:remove="tag"></div>
     <div th:insert="fragments/card :: card(name = 'Steam')" th:remove="tag"></div>

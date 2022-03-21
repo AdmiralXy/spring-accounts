@@ -18,3 +18,7 @@
 .display-4 {
     color: #e3e3e3;
 }
+
+.modal-backdrop.fade.show {
+    z-index: 0;
+}
