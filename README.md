@@ -26,5 +26,5 @@ Configure database connection: src/main/resources/application.properties
 
 ```
 $> mvn clean package
-$> java -jar target/spring-accounts-1.0.0.jar
+$> java -jar target/spring-accounts-0.0.1-SNAPSHOT.jar
 ```
