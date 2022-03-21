@@ -6,7 +6,15 @@
 <body>
 <span layout:fragment="title">My accounts</span>
 <div layout:fragment="content">
-    <h1 class="text-primary">Home page!</h1>
+    <div th:insert="fragments/card :: card(name = 'Epic Games')" th:remove="tag"></div>
+    <div th:insert="fragments/card :: card(name = 'Steam')" th:remove="tag"></div>
+    <div th:insert="fragments/card :: card(name = 'Rockstar Games')" th:remove="tag"></div>
+    <div th:insert="fragments/card :: card(name = 'Epic Games')" th:remove="tag"></div>
+    <div th:insert="fragments/card :: card(name = 'Steam')" th:remove="tag"></div>
+    <div th:insert="fragments/card :: card(name = 'Rockstar Games')" th:remove="tag"></div>
+    <div th:insert="fragments/card :: card(name = 'Epic Games')" th:remove="tag"></div>
+    <div th:insert="fragments/card :: card(name = 'Steam')" th:remove="tag"></div>
+    <div th:insert="fragments/card :: card(name = 'Rockstar Games')" th:remove="tag"></div>
 </div>
 </body>
 </html>
