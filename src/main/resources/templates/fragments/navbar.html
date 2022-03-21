@@ -1,0 +1,53 @@
+<div th:fragment="navbar" xmlns:sec="http://www.w3.org/1999/xhtml">
+    <nav class="navbar navbar-expand-lg position-absolute top-0 z-index-3 w-100 shadow-none my-3 navbar-transparent">
+        <div class="container">
+            <a class="navbar-brand text-white" href="/"
+               rel="tooltip" title="Spring Accounts" data-placement="bottom">
+                Spring Accounts
+            </a>
+            <button class="navbar-toggler shadow-none ms-2" type="button" data-bs-toggle="collapse"
+                    data-bs-target="#navigation" aria-controls="navigation" aria-expanded="false"
+                    aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon mt-2">
+          <span class="navbar-toggler-bar bar1"></span>
+          <span class="navbar-toggler-bar bar2"></span>
+          <span class="navbar-toggler-bar bar3"></span>
+        </span>
+            </button>
+            <div class="collapse navbar-collapse w-100 pt-3 pb-2 py-lg-0 ms-lg-12 ps-lg-5" id="navigation">
+                <ul class="navbar-nav navbar-nav-hover ms-auto">
+                    <li class="nav-item dropdown dropdown-hover mx-2" sec:authorize="!isAuthenticated()">
+                        <a href="/login" class="nav-link ps-2 d-flex cursor-pointer align-items-center">
+                            <i class="fa-solid fa-right-to-bracket me-2"></i>
+                            Login
+                        </a>
+                    </li>
+                    <li class="nav-item dropdown dropdown-hover mx-2" sec:authorize="!isAuthenticated()">
+                        <a href="/register" class="nav-link ps-2 d-flex cursor-pointer align-items-center">
+                            <i class="fa-solid fa-address-card me-2"></i>
+                            Register
+                        </a>
+                    </li>
+                    <li class="nav-item dropdown dropdown-hover mx-2" sec:authorize="isAuthenticated()">
+                        <span class="nav-link ps-2 d-flex cursor-pointer align-items-center">
+                            Welcome, [[${#httpServletRequest.getRemoteUser()}]]!
+                        </span>
+                    </li>
+                    <li class="nav-item dropdown dropdown-hover mx-2" sec:authorize="isAuthenticated()">
+                        <form id="logout" th:action="@{/logout}" method="POST" class="nav-link ps-2 d-flex cursor-pointer align-items-center">
+                            <i class="fa-solid fa-right-to-bracket me-2"></i>
+                            <span onclick="document.getElementById('logout').submit()">Logout</span>
+                        </form>
+                    </li>
+                    <li class="nav-item dropdown dropdown-hover mx-2">
+                        <a href="https://github.com/AdmiralXy/spring-accounts" target="_blank"
+                           class="nav-link ps-2 d-flex cursor-pointer align-items-center">
+                            <i class="fa-brands fa-github me-2"></i>
+                            Github
+                        </a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+</div>

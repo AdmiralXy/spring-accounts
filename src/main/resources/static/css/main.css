@@ -1,0 +1,8 @@
+.page-header {
+    background-image: url('/images/background.avif')
+}
+
+.form-control-error {
+    color: #c31f1f;
+    font-size: 11px;
+}
