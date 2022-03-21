@@ -2,7 +2,7 @@ const passwordStatus = document.querySelectorAll('.input-group-prepend.password-
 const passwordInput = document.querySelectorAll('.form-control.password-first, .form-control.password-confirm')
 
 passwordInput.forEach((e) => {
-    e.addEventListener('change', () => {
+    e.addEventListener('input', () => {
         compare()
     })
 })
