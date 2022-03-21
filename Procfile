@@ -1,1 +1,1 @@
-web: java $JAVA_OPTS -jar target/spring-board-1.0.0.jar --port $PORT
+web: java $JAVA_OPTS -jar target/spring-accounts-0.0.1-SNAPSHOT.jar --port $PORT
