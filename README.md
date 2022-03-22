@@ -11,8 +11,11 @@
 * PostgreSQL
 * Liquibase
 * Hibernate Validation
+* Google Guava
 
 ### Features
+
+* AES CBC Encryption with random Initialization vector (IV)
 
 ### Requirements
 
