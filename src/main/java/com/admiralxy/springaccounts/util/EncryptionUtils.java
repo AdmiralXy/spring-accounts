@@ -13,6 +13,8 @@ import java.security.SecureRandom;
 @Component
 public class EncryptionUtils {
     private Key getKey(String password) {
+        if (password == null || password.isEmpty())
+            password = "default";
         String sha256hex = Hashing.sha256()
                 .hashString(password, StandardCharsets.UTF_8)
                 .toString().substring(0, 16);
