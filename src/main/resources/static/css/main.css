@@ -2,6 +2,10 @@
     background-image: url('/images/background.jpg')
 }
 
+.text-left {
+    text-align: left;
+}
+
 .form-control-error {
     color: #c31f1f;
     font-size: 11px;

@@ -7,22 +7,17 @@
 <div layout:fragment="title-content">
     <div class="col-md-12 text-center">
         <h1 class="display-4">My accounts</h1>
-        <button type="button" class="btn bg-gradient-success btn-block mt-3" data-bs-toggle="modal" data-bs-target="#addAccountModal">
+        <button type="button" class="btn bg-gradient-success btn-block mt-3" data-bs-toggle="modal"
+                data-bs-target="#addAccountModal">
             <small>New account</small>
         </button>
         <div th:insert="fragments/addAccountModal :: addAccountModal" th:remove="tag"></div>
     </div>
 </div>
 <div layout:fragment="content">
-    <div th:insert="fragments/card :: card(name = 'Epic Games')" th:remove="tag"></div>
-    <div th:insert="fragments/card :: card(name = 'Steam')" th:remove="tag"></div>
-    <div th:insert="fragments/card :: card(name = 'Rockstar Games')" th:remove="tag"></div>
-    <div th:insert="fragments/card :: card(name = 'Epic Games')" th:remove="tag"></div>
-    <div th:insert="fragments/card :: card(name = 'Steam')" th:remove="tag"></div>
-    <div th:insert="fragments/card :: card(name = 'Rockstar Games')" th:remove="tag"></div>
-    <div th:insert="fragments/card :: card(name = 'Epic Games')" th:remove="tag"></div>
-    <div th:insert="fragments/card :: card(name = 'Steam')" th:remove="tag"></div>
-    <div th:insert="fragments/card :: card(name = 'Rockstar Games')" th:remove="tag"></div>
+    <div th:each="credential : ${credentials}" th:remove="tag">
+        <div th:insert="fragments/card :: card(name = ${credential.getName()}, login = ${credential.getLogin()}, password = ${credential.getPassword()})" th:remove="tag"></div>
+    </div>
 </div>
 </body>
 </html>
