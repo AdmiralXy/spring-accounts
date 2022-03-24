@@ -1,6 +1,5 @@
 package com.admiralxy.springaccounts;
 
-import com.admiralxy.springaccounts.controller.HomeController;
 import com.admiralxy.springaccounts.entity.User;
 import com.admiralxy.springaccounts.service.interfaces.IUserService;
 import org.junit.jupiter.api.Test;
@@ -22,12 +21,12 @@ import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.
 @TestPropertySource("/application-tests.properties")
 @AutoConfigureMockMvc
 @Sql(value = "/sql/login-test-before.sql", executionPhase = Sql.ExecutionPhase.BEFORE_TEST_METHOD)
+@Sql(value = "/sql/login-test-after.sql", executionPhase = Sql.ExecutionPhase.AFTER_TEST_METHOD)
 public class LoginTest {
 
     @Autowired
     private MockMvc mockMvc;
-    @Autowired
-    private HomeController homeController;
+
     @Autowired
     private IUserService userService;
 
