@@ -31,9 +31,11 @@ public class CredentialService implements ICredentialService {
     @Override
     public Credential findById(Long id, String key) throws Exception {
         Credential credential = credentialRepository.findById(id).orElse(null);
-        if (credential != null) {
+        if (credential != null && key != null) {
             String decrypted = encryptionUtils.decode(credential.getPassword(), key);
             credential.setPassword(decrypted);
+            credential.setSecurityKey(key);
+            credential.setDecrypted(true);
         }
         return credential;
     }
@@ -46,7 +48,7 @@ public class CredentialService implements ICredentialService {
     @Override
     public Credential save(Credential credential) throws Exception {
         String encrypted = encryptionUtils.encode(
-                credential.getLogin(),
+                credential.getPassword(),
                 credential.getSecurityKey()
         );
         credential.setUser(authUtils.getCurrentUser());

@@ -15,6 +15,8 @@
 
 ### Features
 
+* Store credentials in encrypted form
+* Open access to account data by link
 * AES CBC Encryption with random Initialization vector (IV)
 
 ### Requirements

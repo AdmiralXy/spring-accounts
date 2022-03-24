@@ -1,8 +1,8 @@
 package com.admiralxy.springaccounts.entity;
 
-import com.admiralxy.springaccounts.validation.Matches;
 import lombok.Getter;
 import lombok.Setter;
+import lombok.ToString;
 import javax.persistence.*;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
@@ -11,6 +11,7 @@ import javax.validation.constraints.Size;
 @Table(name = "credentials")
 @Getter
 @Setter
+@ToString
 public class Credential extends BaseEntity {
     @Size(min=1, max=100, message = "{validation.size.string}")
     @NotNull(message = "{validation.empty}")
@@ -34,6 +35,9 @@ public class Credential extends BaseEntity {
     @ManyToOne
     @JoinColumn(name = "user_id")
     private User user;
+
+    @Transient
+    private boolean isDecrypted = false;
 
     public Credential() {
 

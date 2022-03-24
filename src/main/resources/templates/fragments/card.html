@@ -1,19 +1,23 @@
 <div class="col-lg-4 px-lg-1 mt-lg-0 py-4" th:fragment="card">
-  <div class="info-horizontal bg-gray-100 border-radius-xl d-block d-md-flex p-4 h-100">
-    <i class="fa-solid fa-key"></i>
-    <div class="ps-0 ps-md-3 mt-3 mt-md-0">
-      <h5 th:text="${name} + ' [' + ${password.substring(0, 4)} + ']'"></h5>
+  <div class="info-horizontal bg-gray-100 border-radius-xl d-block d-md-flex p-4 h-100 justify-content-between">
+    <div class="col-md-10 ps-0 ps-md-3 mt-3 mt-md-0">
+      <h5><i class="fa-solid fa-key fa-xs me-2"></i><span th:text="${credential.getName()}" th:remove="tag"></span></h5>
       <div class="input-group input-group-outline my-3 is-filled">
         <label class="form-label">User</label>
-        <input type="text" th:value="${login}" class="form-control" disabled>
+        <input type="text" th:value="${credential.getLogin()}" class="form-control" th:disabled="${!credential.isDecrypted()}">
       </div>
       <div class="input-group input-group-outline my-3 is-filled">
         <label class="form-label">Password</label>
-        <input type="password" th:value="${password}" class="form-control" disabled>
+        <input th:type="${credential.isDecrypted() == true ? 'text' : 'password'}" th:value="${credential.getPassword()}" class="form-control" th:disabled="${!credential.isDecrypted()}">
       </div>
-      <a href="https://www.creative-tim.com/learning-lab/bootstrap/datepicker/material-kit" class="text-primary icon-move-right">
+      <a th:href="@{/credentials/check/{id}(id = ${credential.getId()})}" class="text-primary icon-move-right" th:if="${!credential.isDecrypted()}">
         Show credentials
         <i class="fas fa-arrow-right text-sm ms-1"></i>
+      </a>
+    </div>
+    <div th:if="${credential.isDecrypted()}" th:remove="tag">
+      <a th:href="@{/credentials/share/{id}?key={key}(id = ${credential.getId()}, key = ${credential.getSecurityKey()})}">
+        <i class="fa-solid fa-share-from-square"></i>
       </a>
     </div>
   </div>

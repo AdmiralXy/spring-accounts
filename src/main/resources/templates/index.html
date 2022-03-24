@@ -16,7 +16,12 @@
 </div>
 <div layout:fragment="content">
     <div th:each="credential : ${credentials}" th:remove="tag">
-        <div th:insert="fragments/card :: card(name = ${credential.getName()}, login = ${credential.getLogin()}, password = ${credential.getPassword()})" th:remove="tag"></div>
+        <div th:if="${credentialShow != null && credential.getId() == credentialShow.getId()}" th:remove="tag">
+            <div th:insert="fragments/card :: card(credential = ${credentialShow})" th:remove="tag"></div>
+        </div>
+        <div th:unless="${credentialShow != null && credential.getId() == credentialShow.getId()}" th:remove="tag">
+            <div th:insert="fragments/card :: card(credential = ${credential})" th:remove="tag"></div>
+        </div>
     </div>
 </div>
 </body>
