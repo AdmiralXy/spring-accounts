@@ -18,8 +18,8 @@ import static org.springframework.test.web.servlet.result.MockMvcResultHandlers.
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.redirectedUrl;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.status;
 
-@TestPropertySource("/application-tests.properties")
 @SpringBootTest
+@TestPropertySource("/application-tests.properties")
 @AutoConfigureMockMvc
 @Sql(value = "/sql/login-test-before.sql", executionPhase = Sql.ExecutionPhase.BEFORE_TEST_METHOD)
 public class LoginTest {
