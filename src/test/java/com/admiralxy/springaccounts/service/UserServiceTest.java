@@ -6,8 +6,6 @@ import com.admiralxy.springaccounts.service.interfaces.IUserService;
 import org.hamcrest.CoreMatchers;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
-import org.junit.jupiter.api.extension.ExtendWith;
-import org.mockito.junit.jupiter.MockitoExtension;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.test.context.TestPropertySource;
@@ -18,9 +16,7 @@ import java.util.List;
 import static org.assertj.core.api.Assertions.assertThat;
 import static org.junit.jupiter.api.Assertions.*;
 
-
 @SpringBootTest
-@ExtendWith(MockitoExtension.class)
 @TestPropertySource("/application-tests.properties")
 @Transactional
 class UserServiceTest {
@@ -40,8 +36,8 @@ class UserServiceTest {
         User user2 = new User("someUser2", "somePassword");
         userService.save(user1);
         userService.save(user2);
-        List<User> productList = userService.getAll();
-        assertThat(productList).contains(user1, user2);
+        List<User> userList = userService.getAll();
+        assertThat(userList).contains(user1, user2);
     }
 
     @Test

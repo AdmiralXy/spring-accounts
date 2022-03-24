@@ -34,4 +34,16 @@ public class Credential extends BaseEntity {
     @ManyToOne
     @JoinColumn(name = "user_id")
     private User user;
+
+    public Credential() {
+
+    }
+
+    public Credential(String name, String login, String password, String securityKey, User user) {
+        this.name = name;
+        this.login = login;
+        this.password = password;
+        this.securityKey = securityKey;
+        this.user = user;
+    }
 }
