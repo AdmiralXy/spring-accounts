@@ -23,6 +23,14 @@
 * Node Package Manager
 * PostgreSQL
 
+### Tests
+
+Configure database connection for tests: src/main/resources/application-tests.properties
+
+```
+$> mvn --batch-mode --update-snapshots verify
+```
+
 ### Start up
 
 Configure database connection: src/main/resources/application.properties
