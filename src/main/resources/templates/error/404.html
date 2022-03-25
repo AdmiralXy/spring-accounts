@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html xmlns:layout="http://www.w3.org/1999/xhtml" layout:decorate="~{layouts/main}">
+<head>
+    <title>Home</title>
+</head>
+<body>
+<div layout:fragment="title-content">
+    <div class="col-md-12 text-center">
+        <h1 class="display-4">My accounts</h1>
+        <button type="button" class="btn bg-gradient-success btn-block mt-3" data-bs-toggle="modal"
+                data-bs-target="#addAccountModal">
+            <small>New account</small>
+        </button>
+        <div th:insert="fragments/addAccountModal :: addAccountModal" th:remove="tag"></div>
+    </div>
+</div>
+<div layout:fragment="content" class="text-center">
+    <h1 class="display-4 text-white">404</h1>
+    <h3 class="display-6 text-white">Page not found</h3>
+</div>
+</body>
+</html>
