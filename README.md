@@ -22,7 +22,6 @@
 ### Requirements
 
 * Java 11 with Maven
-* Node Package Manager
 * PostgreSQL
 
 ### Tests
