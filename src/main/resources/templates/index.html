@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html xmlns:layout="http://www.w3.org/1999/xhtml" layout:decorate="~{layouts/application}">
+<html xmlns:layout="http://www.w3.org/1999/xhtml" layout:decorate="~{layouts/application(vhClass = 'min-vh-80')}">
 <head>
     <title>Home</title>
 </head>
@@ -14,13 +14,17 @@
         <div th:insert="fragments/addAccountModal :: addAccountModal" th:remove="tag"></div>
     </div>
 </div>
-<div layout:fragment="content">
-    <div th:each="credential : ${credentials}" th:remove="tag">
-        <div th:if="${credentialShow != null && credential.getId() == credentialShow.getId()}" th:remove="tag">
-            <div th:insert="fragments/card :: card(credential = ${credentialShow})" th:remove="tag"></div>
-        </div>
-        <div th:unless="${credentialShow != null && credential.getId() == credentialShow.getId()}" th:remove="tag">
-            <div th:insert="fragments/card :: card(credential = ${credential})" th:remove="tag"></div>
+<div class="card card-body shadow-xl mx-3 mx-md-4 mt-n6"  layout:fragment="content" th:if="${credentials.size() > 0}">
+    <div class="container">
+        <div class="section row">
+            <div th:each="credential : ${credentials}" th:remove="tag">
+                <div th:if="${credentialShow != null && credential.getId() == credentialShow.getId()}" th:remove="tag">
+                    <div th:insert="fragments/card :: card(credential = ${credentialShow})" th:remove="tag"></div>
+                </div>
+                <div th:unless="${credentialShow != null && credential.getId() == credentialShow.getId()}" th:remove="tag">
+                    <div th:insert="fragments/card :: card(credential = ${credential})" th:remove="tag"></div>
+                </div>
+            </div>
         </div>
     </div>
 </div>

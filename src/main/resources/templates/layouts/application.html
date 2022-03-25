@@ -18,7 +18,7 @@
 <body>
 <div th:replace="fragments/navbar :: navbar"></div>
 
-<div class="page-header min-vh-80">
+<div th:class="'page-header ' + ${vhClass}">
     <span class="mask bg-gradient-darker opacity-6"></span>
     <div class="container">
         <div class="row" layout:fragment="title-content">
@@ -26,12 +26,9 @@
     </div>
 </div>
 
-<div class="card card-body shadow-xl mx-3 mx-md-4 mt-n6">
-    <div class="container">
-        <div class="section row" layout:fragment="content">
 
-        </div>
-    </div>
+<div layout:fragment="content">
+
 </div>
 </body>
 <!--   Core JS Files   -->
