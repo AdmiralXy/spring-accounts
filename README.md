@@ -2,6 +2,14 @@
 
 ### About
 
+Accounts storage web service with AES CBC encryption.
+
+Deployed on Heroku cloud platform, may take a long time to load or be unavailable:
+
+[spring-accounts.herokuapp.com](https://spring-accounts.herokuapp.com)
+
+![alt text](assets/application.jpg)
+
 ### Tools
 
 * Java
@@ -15,8 +23,8 @@
 
 ### Features
 
-* Store credentials in encrypted form
-* Open access to account data by link
+* Store credentials in encrypted form: security key, login/email, password
+* Share account credentials by link
 * AES CBC Encryption with random Initialization vector (IV)
 
 ### Requirements
